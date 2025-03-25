@@ -1,0 +1,27 @@
+% Tiempo óptimo 5
+#const c = 7.
+square(0..c,0..c).
+time(0..30).
+
+% Elegimos con que pieza queremos jugar
+piece(knight).
+
+% Definimos la meta
+goal(0..c,c).
+
+% definimos la posición inicial
+pieceOn(0,0,0).
+
+% declaramos a los enemigos
+pawn(5,5).
+pawn(2,2).
+pawn(2,6).
+pawn(1,4).
+
+rook(1,2,0).
+rook(7,5,1).
+rook(0,5,2).
+
+bishop(7,7,3).
+bishop(0,4,4).
+bishop(4,1,5).

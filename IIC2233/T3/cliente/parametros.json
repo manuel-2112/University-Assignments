@@ -1,0 +1,20 @@
+{
+    "NAME_HOST": "LENOVO-FLEX-5-MANUEL",
+    "IP_HOST": "169.254.216.165",
+    "PORT": 8080,
+    "RUTA_VENTANA_INICIO": [
+        "frontend",
+        "UI files",
+        "VentanaInicio.ui"
+    ],
+    "RUTA_VENTANA_ESPERA": [
+        "frontend",
+        "UI files",
+        "VentanaEspera.ui"
+    ],
+    "RUTA_VENTANA_JUEGO": [
+        "frontend",
+        "UI files",
+        "VentanaJuego.ui"
+    ]
+}

@@ -1,0 +1,20 @@
+{
+    "categories": [
+      {
+        "name": "Estudiante",
+        "weighting": 1,
+        "cost": 0
+      },
+      {
+        "name": "Ayudante",
+        "weighting": 2,
+        "cost": 10
+      },
+      {
+        "name": "Ayudante coordinador",
+        "weighting": 3,
+        "cost": 15
+      }
+    ]
+  }
+  

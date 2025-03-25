@@ -1,0 +1,100 @@
+{
+    "courses": [
+    {
+        "name": "Computación: ciencia y tecnología para el mundo digital",
+        "position": 1,
+        "cost": 3,
+        "rent": 1,
+        "color": "blue",
+        "description": "En este curso aprenderás un poco de todo."
+    },
+    {
+        "name": "Introducción a la programación",
+        "position": 2,
+        "cost": 5,
+        "rent": 3,
+        "color": "blue",
+        "description": "Este curso te enseñara a programar en Python."
+    },
+    {
+        "name": "Sistemas de la información",
+        "position": 4,
+        "cost": 5,
+        "rent": 3,
+        "color": "blue",
+        "description": "Nadie sabe porque esta, ni para que sirve. Tendrás que hacer tareas muy fomes."
+    },
+    {
+        "name": "Bases de datos",
+        "position": 6,
+        "cost": 8,
+        "rent": 5,
+        "color": "green",
+        "description": "En este curso aprenderás a programar en PHP, un lenguaje que no sirve para nada."
+    },
+    {
+        "name": "Ingeniería de software",
+        "position": 8,
+        "cost": 10,
+        "rent": 7,
+        "color": "green",
+        "description": "¡Serás capaz de hacer una aplicación con Ruby On Rails! Y creo que pasan más materia que luego no te recordaras…"
+    },
+    {
+        "name": "Programación avanzada",
+        "position": 9,
+        "cost": 12,
+        "rent": 9,
+        "color": "green",
+        "description": "Aprenderás a hacer de todo con Python, incluso lo que nadie hace con este lenguaje: Interfaces gráficas con PyQt5 y montar un servidor."
+    },
+    {
+        "name": "Diseño detallado de software",
+        "position": 11,
+        "cost": 13,
+        "rent": 10,
+        "color": "orange",
+        "description": "Tendrás que leer Clean Code y nombrar largas funciones."
+    },
+    {
+        "name": "Matemáticas discretas",
+        "position": 12,
+        "cost": 13,
+        "rent": 10,
+        "color": "orange",
+        "description": "No sabrás por qué es de computación hasta el último mes… Pero aprenderás a demostrar y a ocupar Latex."
+    },
+    {
+        "name": "Tecnologías y aplicaciones web",
+        "position": 13,
+        "cost": 15,
+        "rent": 12,
+        "color": "orange",
+        "description": "¿Javascript? SI a todo."
+    },
+    {
+        "name": "Estructura de datos y algoritmos",
+        "position": 16,
+        "cost": 18,
+        "rent": 15,
+        "color": "yellow",
+        "description": "Aprenderás sobre estructuras de datos, algoritmos y sobre todo Segmentation fault (core dumped)."
+    },
+    {
+        "name": "Arquitectura de sistemas de software",
+        "position": 18,
+        "cost": 20,
+        "rent": 17,
+        "color": "yellow",
+        "description": "Nose que poner aca"
+    },
+    {
+        "name": "Capstone",
+        "position": 19,
+        "cost": 20,
+        "rent": 17,
+        "color": "yellow",
+        "description": "Si entiendes como funcionan las notas, avísanos por favor."
+    }
+]
+}

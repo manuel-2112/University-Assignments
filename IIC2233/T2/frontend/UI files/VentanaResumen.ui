@@ -1,0 +1,612 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>1101</width>
+    <height>676</height>
+   </rect>
+  </property>
+  <property name="minimumSize">
+   <size>
+    <width>400</width>
+    <height>540</height>
+   </size>
+  </property>
+  <property name="maximumSize">
+   <size>
+    <width>16777215</width>
+    <height>16777215</height>
+   </size>
+  </property>
+  <property name="cursor">
+   <cursorShape>ArrowCursor</cursorShape>
+  </property>
+  <property name="windowTitle">
+   <string>DCComando Espacial</string>
+  </property>
+  <property name="windowIcon">
+   <iconset>
+    <normaloff>../../../../../../../../../.designer/Sprites/Terminator-Dog/Perro_y_alien1.png</normaloff>../../../../../../../../../.designer/Sprites/Terminator-Dog/Perro_y_alien1.png</iconset>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">background-color: rgb(75, 75, 75);</string>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <property name="styleSheet">
+    <string notr="true"/>
+   </property>
+   <layout class="QHBoxLayout" name="horizontalLayout">
+    <item>
+     <widget class="QWidget" name="widget" native="true">
+      <property name="enabled">
+       <bool>true</bool>
+      </property>
+      <property name="minimumSize">
+       <size>
+        <width>0</width>
+        <height>0</height>
+       </size>
+      </property>
+      <property name="maximumSize">
+       <size>
+        <width>16777215</width>
+        <height>16777215</height>
+       </size>
+      </property>
+      <property name="mouseTracking">
+       <bool>false</bool>
+      </property>
+      <property name="layoutDirection">
+       <enum>Qt::LeftToRight</enum>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background-color: rgb(33, 30, 47);</string>
+      </property>
+      <layout class="QVBoxLayout">
+       <item>
+        <widget class="QWidget" name="widget_7" native="true">
+         <layout class="QVBoxLayout" name="verticalLayout">
+          <property name="spacing">
+           <number>0</number>
+          </property>
+          <property name="leftMargin">
+           <number>0</number>
+          </property>
+          <property name="topMargin">
+           <number>0</number>
+          </property>
+          <property name="rightMargin">
+           <number>0</number>
+          </property>
+          <property name="bottomMargin">
+           <number>0</number>
+          </property>
+          <item>
+           <widget class="QWidget" name="widget_8" native="true">
+            <layout class="QHBoxLayout" name="horizontalLayout_4">
+             <item>
+              <spacer name="horizontalSpacer_3">
+               <property name="orientation">
+                <enum>Qt::Horizontal</enum>
+               </property>
+               <property name="sizeHint" stdset="0">
+                <size>
+                 <width>40</width>
+                 <height>20</height>
+                </size>
+               </property>
+              </spacer>
+             </item>
+             <item>
+              <widget class="QLabel" name="label_20">
+               <property name="maximumSize">
+                <size>
+                 <width>105</width>
+                 <height>100</height>
+                </size>
+               </property>
+               <property name="text">
+                <string/>
+               </property>
+               <property name="pixmap">
+                <pixmap>../Sprites/Aliens/Alien1.png</pixmap>
+               </property>
+               <property name="scaledContents">
+                <bool>true</bool>
+               </property>
+               <property name="alignment">
+                <set>Qt::AlignCenter</set>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <spacer name="horizontalSpacer_6">
+               <property name="orientation">
+                <enum>Qt::Horizontal</enum>
+               </property>
+               <property name="sizeHint" stdset="0">
+                <size>
+                 <width>40</width>
+                 <height>20</height>
+                </size>
+               </property>
+              </spacer>
+             </item>
+            </layout>
+           </widget>
+          </item>
+          <item>
+           <widget class="QLabel" name="label">
+            <property name="styleSheet">
+             <string notr="true">color: rgb(229, 229, 229);
+font: bold 20pt &quot;MS Shell Dlg 2&quot;;</string>
+            </property>
+            <property name="text">
+             <string>RESUMEN DEL NIVEL</string>
+            </property>
+            <property name="alignment">
+             <set>Qt::AlignCenter</set>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </widget>
+       </item>
+       <item>
+        <spacer name="verticalSpacer_3">
+         <property name="orientation">
+          <enum>Qt::Vertical</enum>
+         </property>
+         <property name="sizeHint" stdset="0">
+          <size>
+           <width>20</width>
+           <height>40</height>
+          </size>
+         </property>
+        </spacer>
+       </item>
+       <item>
+        <widget class="QLabel" name="jugador">
+         <property name="styleSheet">
+          <string notr="true">color: rgb(229, 229, 229);
+font: bold 18pt &quot;MS Shell Dlg 2&quot;;</string>
+         </property>
+         <property name="text">
+          <string>Jugador</string>
+         </property>
+         <property name="alignment">
+          <set>Qt::AlignCenter</set>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QWidget" name="widget_6" native="true">
+         <layout class="QGridLayout" name="gridLayout">
+          <item row="2" column="0">
+           <spacer name="horizontalSpacer">
+            <property name="orientation">
+             <enum>Qt::Horizontal</enum>
+            </property>
+            <property name="sizeHint" stdset="0">
+             <size>
+              <width>40</width>
+              <height>20</height>
+             </size>
+            </property>
+           </spacer>
+          </item>
+          <item row="4" column="3">
+           <widget class="QLabel" name="puntaje_nivel">
+            <property name="styleSheet">
+             <string notr="true">color: rgb(229, 229, 229);
+font: 15pt &quot;MS Shell Dlg 2&quot;;</string>
+            </property>
+            <property name="text">
+             <string>0</string>
+            </property>
+           </widget>
+          </item>
+          <item row="2" column="5">
+           <spacer name="horizontalSpacer_2">
+            <property name="orientation">
+             <enum>Qt::Horizontal</enum>
+            </property>
+            <property name="sizeHint" stdset="0">
+             <size>
+              <width>40</width>
+              <height>20</height>
+             </size>
+            </property>
+           </spacer>
+          </item>
+          <item row="0" column="2">
+           <spacer name="horizontalSpacer_4">
+            <property name="orientation">
+             <enum>Qt::Horizontal</enum>
+            </property>
+            <property name="sizeHint" stdset="0">
+             <size>
+              <width>40</width>
+              <height>20</height>
+             </size>
+            </property>
+           </spacer>
+          </item>
+          <item row="4" column="1">
+           <widget class="QLabel" name="nombre_5">
+            <property name="styleSheet">
+             <string notr="true">color: rgb(229, 229, 229);
+font: 15pt &quot;MS Shell Dlg 2&quot;;</string>
+            </property>
+            <property name="text">
+             <string>Puntaje obtenido en el nivel</string>
+            </property>
+           </widget>
+          </item>
+          <item row="0" column="3">
+           <widget class="QLabel" name="nivel_actual">
+            <property name="styleSheet">
+             <string notr="true">color: rgb(229, 229, 229);
+font: 15pt &quot;MS Shell Dlg 2&quot;;</string>
+            </property>
+            <property name="text">
+             <string>0</string>
+            </property>
+           </widget>
+          </item>
+          <item row="0" column="1">
+           <widget class="QLabel" name="nombre_1">
+            <property name="styleSheet">
+             <string notr="true">color: rgb(229, 229, 229);
+font: 15pt &quot;MS Shell Dlg 2&quot;;</string>
+            </property>
+            <property name="text">
+             <string>Nivel actual</string>
+            </property>
+           </widget>
+          </item>
+          <item row="3" column="1">
+           <widget class="QLabel" name="nombre_4">
+            <property name="styleSheet">
+             <string notr="true">color: rgb(229, 229, 229);
+font: 15pt &quot;MS Shell Dlg 2&quot;;</string>
+            </property>
+            <property name="text">
+             <string>Puntaje total</string>
+            </property>
+           </widget>
+          </item>
+          <item row="3" column="3">
+           <widget class="QLabel" name="puntaje_total">
+            <property name="styleSheet">
+             <string notr="true">color: rgb(229, 229, 229);
+font: 15pt &quot;MS Shell Dlg 2&quot;;</string>
+            </property>
+            <property name="text">
+             <string>0</string>
+            </property>
+           </widget>
+          </item>
+          <item row="2" column="3">
+           <widget class="QLabel" name="tiempo_restante">
+            <property name="styleSheet">
+             <string notr="true">color: rgb(229, 229, 229);
+font: 15pt &quot;MS Shell Dlg 2&quot;;</string>
+            </property>
+            <property name="text">
+             <string>0</string>
+            </property>
+           </widget>
+          </item>
+          <item row="1" column="3">
+           <widget class="QLabel" name="balas_restantes">
+            <property name="styleSheet">
+             <string notr="true">color: rgb(229, 229, 229);
+font: 15pt &quot;MS Shell Dlg 2&quot;;</string>
+            </property>
+            <property name="text">
+             <string>0</string>
+            </property>
+           </widget>
+          </item>
+          <item row="1" column="1">
+           <widget class="QLabel" name="nombre_2">
+            <property name="styleSheet">
+             <string notr="true">color: rgb(229, 229, 229);
+font: 15pt &quot;MS Shell Dlg 2&quot;;</string>
+            </property>
+            <property name="text">
+             <string>Balas restantes</string>
+            </property>
+           </widget>
+          </item>
+          <item row="2" column="1">
+           <widget class="QLabel" name="nombre_3">
+            <property name="styleSheet">
+             <string notr="true">color: rgb(229, 229, 229);
+font: 15pt &quot;MS Shell Dlg 2&quot;;</string>
+            </property>
+            <property name="text">
+             <string>Tiempo restante</string>
+            </property>
+           </widget>
+          </item>
+          <item row="2" column="4">
+           <widget class="QLabel" name="label_2">
+            <property name="styleSheet">
+             <string notr="true">color: rgb(229, 229, 229);
+font: 10pt &quot;MS Shell Dlg 2&quot;;</string>
+            </property>
+            <property name="text">
+             <string>seg</string>
+            </property>
+           </widget>
+          </item>
+          <item row="3" column="4">
+           <widget class="QLabel" name="label_3">
+            <property name="styleSheet">
+             <string notr="true">color: rgb(229, 229, 229);
+font: 10pt &quot;MS Shell Dlg 2&quot;;</string>
+            </property>
+            <property name="text">
+             <string>ptos</string>
+            </property>
+           </widget>
+          </item>
+          <item row="4" column="4">
+           <widget class="QLabel" name="label_4">
+            <property name="styleSheet">
+             <string notr="true">color: rgb(229, 229, 229);
+font: 10pt &quot;MS Shell Dlg 2&quot;;</string>
+            </property>
+            <property name="text">
+             <string>ptos</string>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </widget>
+       </item>
+       <item>
+        <spacer name="verticalSpacer_5">
+         <property name="orientation">
+          <enum>Qt::Vertical</enum>
+         </property>
+         <property name="sizeHint" stdset="0">
+          <size>
+           <width>20</width>
+           <height>40</height>
+          </size>
+         </property>
+        </spacer>
+       </item>
+       <item alignment="Qt::AlignHCenter">
+        <widget class="QLabel" name="mensaje_victoria">
+         <property name="minimumSize">
+          <size>
+           <width>500</width>
+           <height>0</height>
+          </size>
+         </property>
+         <property name="maximumSize">
+          <size>
+           <width>16777215</width>
+           <height>16777215</height>
+          </size>
+         </property>
+         <property name="layoutDirection">
+          <enum>Qt::LeftToRight</enum>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">color: rgb(85, 170, 0);
+font: 12pt &quot;MS Shell Dlg 2&quot;;
+background-color: rgb(176, 255, 134);
+padding: 5px;
+border: 2px solid #55aa00;
+border-radius: 15px;</string>
+         </property>
+         <property name="text">
+          <string>¡Puedes dominar el siguiente nivel!</string>
+         </property>
+         <property name="alignment">
+          <set>Qt::AlignCenter</set>
+         </property>
+        </widget>
+       </item>
+       <item alignment="Qt::AlignHCenter">
+        <widget class="QLabel" name="mensaje_derrota">
+         <property name="minimumSize">
+          <size>
+           <width>500</width>
+           <height>0</height>
+          </size>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">color: rgb(229, 229, 229);
+font: 12pt &quot;MS Shell Dlg 2&quot;;
+background-color: rgb(170, 65, 61);
+padding: 5px;
+border: 2px solid #de3033;
+border-radius: 15px;</string>
+         </property>
+         <property name="text">
+          <string>¡Perdiste! No puedes seguir jugando...</string>
+         </property>
+         <property name="alignment">
+          <set>Qt::AlignCenter</set>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <spacer name="verticalSpacer">
+         <property name="orientation">
+          <enum>Qt::Vertical</enum>
+         </property>
+         <property name="sizeHint" stdset="0">
+          <size>
+           <width>20</width>
+           <height>40</height>
+          </size>
+         </property>
+        </spacer>
+       </item>
+       <item alignment="Qt::AlignHCenter">
+        <widget class="QWidget" name="widget_2" native="true">
+         <property name="styleSheet">
+          <string notr="true"/>
+         </property>
+         <layout class="QHBoxLayout" name="horizontalLayout_2">
+          <item>
+           <widget class="QWidget" name="widget_4" native="true">
+            <layout class="QHBoxLayout" name="horizontalLayout_6">
+             <item>
+              <widget class="QPushButton" name="boton_siguiente_nivel">
+               <property name="minimumSize">
+                <size>
+                 <width>200</width>
+                 <height>0</height>
+                </size>
+               </property>
+               <property name="styleSheet">
+                <string notr="true">QPushButton#boton_siguiente_nivel{
+background-color: rgb(75, 75, 75);
+color: rgb(229, 229, 229);
+font: 15pt &quot;MS Shell Dlg 2&quot;;
+border: 2px solid #797982;
+padding: 2px;
+border-radius: 15px;
+}
+
+QPushButton#boton_siguiente_nivel:hover{
+background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:1, stop:0 rgb(158, 240, 245), stop:1 rgb(75, 75, 75));
+color: rgb(158, 240, 245);
+font: 15pt &quot;MS Shell Dlg 2&quot;;
+border: 2px solid #797982;
+padding: 2px;
+border-radius: 15px;
+}
+
+
+QPushButton#boton_siguiente_nivel:pressed{
+background-color: rgb(158, 240, 245);
+color: rgb(75, 75, 75);
+font: bold 15pt &quot;MS Shell Dlg 2&quot;;
+border: 2px solid #4B4B4B;
+padding: 2px;
+border-radius: 15px;
+}</string>
+               </property>
+               <property name="text">
+                <string>Siguiente nivel</string>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QPushButton" name="boton_volver_inicio">
+               <property name="minimumSize">
+                <size>
+                 <width>200</width>
+                 <height>0</height>
+                </size>
+               </property>
+               <property name="styleSheet">
+                <string notr="true">QPushButton#boton_volver_inicio{
+background-color: rgb(75, 75, 75);
+color: rgb(229, 229, 229);
+font: 15pt &quot;MS Shell Dlg 2&quot;;
+border: 2px solid #797982;
+padding: 2px;
+border-radius: 15px;
+}
+
+QPushButton#boton_volver_inicio:hover{
+background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:1, stop:0 rgb(158, 240, 245), stop:1 rgb(75, 75, 75));
+color: rgb(158, 240, 245);
+font: 15pt &quot;MS Shell Dlg 2&quot;;
+border: 2px solid #797982;
+padding: 2px;
+border-radius: 15px;
+}
+
+
+QPushButton#boton_volver_inicio:pressed{
+background-color: rgb(158, 240, 245);
+color: rgb(75, 75, 75);
+font: bold 15pt &quot;MS Shell Dlg 2&quot;;
+border: 2px solid #4B4B4B;
+padding: 2px;
+border-radius: 15px;
+}</string>
+               </property>
+               <property name="text">
+                <string>Volver</string>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QPushButton" name="boton_salir">
+               <property name="minimumSize">
+                <size>
+                 <width>200</width>
+                 <height>0</height>
+                </size>
+               </property>
+               <property name="maximumSize">
+                <size>
+                 <width>500</width>
+                 <height>16777215</height>
+                </size>
+               </property>
+               <property name="styleSheet">
+                <string notr="true">QPushButton#boton_salir{
+background-color: rgb(75, 75, 75);
+color: rgb(229, 229, 229);
+font: 15pt &quot;MS Shell Dlg 2&quot;;
+border: 2px solid #797982;
+padding: 2px;
+border-radius: 15px;
+}
+
+QPushButton#boton_salir:hover{
+background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:1, stop:0 rgb(158, 240, 245), stop:1 rgb(75, 75, 75));
+color: rgb(158, 240, 245);
+font: 15pt &quot;MS Shell Dlg 2&quot;;
+border: 2px solid #797982;
+padding: 2px;
+border-radius: 15px;
+}
+
+
+QPushButton#boton_salir:pressed{
+background-color: rgb(158, 240, 245);
+color: rgb(75, 75, 75);
+font: bold 15pt &quot;MS Shell Dlg 2&quot;;
+border: 2px solid #4B4B4B;
+padding: 2px;
+border-radius: 15px;
+}</string>
+               </property>
+               <property name="text">
+                <string>Salir</string>
+               </property>
+              </widget>
+             </item>
+            </layout>
+           </widget>
+          </item>
+         </layout>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+    </item>
+   </layout>
+  </widget>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>

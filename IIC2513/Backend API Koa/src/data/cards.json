@@ -1,0 +1,136 @@
+{
+    "odoc": [
+      {
+        "description": "¡Odoc te ha ayudado a convalidar un ramo! Ganas 5 créditos.",
+        "factor": 5,
+        "position": 5
+      },
+      {
+        "description": "Odoc te ayudo a pasar tu informe de práctica. Ganas 3 créditos.",
+        "factor": 3,
+        "position": 5
+      },
+      {
+        "description": "Odoc te ayudo a inscribir tu major en computación. Ganas 3 créditos.",
+        "factor": 3,
+        "position": 5
+      },
+      {
+        "description": "Odoc te ayudo en tu examen de inglés. Ganas 2 créditos.",
+        "factor": 2,
+        "position": 5
+      },
+      {
+        "description": "Odoc te ayudo a organizar tu malla, y no morir en el intento. Ganas 5 créditos.",
+        "factor": 3,
+        "position": 5
+      },
+      {
+        "description": "¡Odoc te ha ayudado a convalidar un ramo complicado! Ganas 10 créditos.",
+        "factor": 10,
+        "position": 5
+      },
+      {
+        "description": "Odoc te ayudo a solicitar una nota pendiente (P). Ganas 2 créditos.",
+        "factor": 2,
+        "position": 5
+      },
+      {
+        "description": "Odoc te ayudo en la toma de ramos. Ganas 3 créditos.",
+        "factor": 3,
+        "position": 5
+      },
+      {
+        "description": "Te quedaste sin cupos en un ramo (por tu mal banner). Odoc te ayudo a solicitar un sobrecupo. Ganas 4 créditos.",
+        "factor": 4,
+        "position": 5
+      }
+    ],
+    "luck": [
+      {
+        "description": "¡Mala suerte! Tu tarea contenía código de otra persona. Tu nota fue un 1 por copia. Pierdes 3 créditos.",
+        "factor": -3,
+        "position": 3
+      },
+      {
+        "description": "¡Mala suerte! El buzón de Canvas se cerró antes de que pudieras entregar tu tarea. Pierdes 3 créditos.",
+        "factor": -3,
+        "position": 3
+      },
+      {
+        "description": "¡La suerte está contigo! El profesor decidió convalidar el proyecto del curso este semestre. Ganas 3 créditos.",
+        "factor": 3,
+        "position": 3
+      },
+      {
+        "description": "¡Estas con suerte! Decidieron bajar la escala del examen y logras la nota que necesitabas. Ganas 5 créditos.",
+        "factor": 5,
+        "position": 14
+      },
+      {
+        "description": "¡Tienes mala suerte! Hiciste “git add .” y subiste archivos que no debías. Tienes un gran descuento en tu nota. Pierdes 3 créditos.",
+        "factor": -3,
+        "position": 14
+      },
+      {
+        "description": "¡Que suerte tuviste! Pese a que tenias un 3.5 como nota en el proyecto del curso, decidieron dejarte pasar igual por tus buenas notas en las pruebas. Ganas 5 créditos.",
+        "factor": 5,
+        "position": 14
+      }
+    ],
+    "communal": [
+      {
+        "description": "Ya que fuiste un buen compañero con los demás, un ayudante decidió darte 3 créditos.",
+        "factor": 3,
+        "position": 7
+      },
+      {
+        "description": "",
+        "factor": 0,
+        "position": 7
+      },
+      {
+        "description": "",
+        "factor": 0,
+        "position": 7
+      },
+      {
+        "description": "",
+        "factor": 0,
+        "position": 17
+      },
+      {
+        "description": "",
+        "factor": 0,
+        "position": 17
+      },
+      {
+        "description": "",
+        "factor": 0,
+        "position": 17
+      }
+    ],
+    "meones": [
+      {
+        "description": "Tu amigo te ha empujado a los meones. Pierdes 10 créditos.",
+        "factor": -10,
+        "position": 15
+      },
+      {
+        "description": "Es tu primer semestre y no sabias sobre la maldición de los meones, así que pasas por debajo de ellos. Pierdes 10 créditos. ",
+        "factor": -10,
+        "position": 15
+      },
+      {
+        "description": "Quisiste desafiar el destino entrando a los meones. No funciono. Pierdes 10 créditos.",
+        "factor": -10,
+        "position": 15
+      },
+      {
+        "description": "¡Parece que has tenido suerte! Encuentras un billete en el piso. Lo recoges, pero te das cuenta de que entraste a los meones a buscarlo. Pierdes 10 créditos.",
+        "factor": -10,
+        "position": 15
+      }
+    ]
+  }
+  

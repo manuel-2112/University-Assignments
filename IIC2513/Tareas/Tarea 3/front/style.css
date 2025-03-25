@@ -1,0 +1,107 @@
+@import url("https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro");
+
+:root {
+    --c-fondo: #EDEDED;
+    --c-texto-claro: #DBEDF3;
+    --c-texto-oscuro: #393E46;
+    --c-boton-general: #F1F3F5;
+    --c-boton-resaltado: #FE6F76;
+    --c-boton-operacion: #D2DDE5;
+    --c--boton-presionado: #C0C0C0;
+    --c--blanco: #FFFF;
+    --c--sombra: 0px 0px 15px rgba(0, 0, 0, 0.5);
+    --c--sombra-leve: 0px 0px 5px rgba(0, 0, 0, 0.3);
+}
+.cabecera-principal-central h1 {
+    font-family: "Be Vietnam Pro";
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content:center;
+    font-size: 2rem;
+    margin-bottom: -2px;
+}
+.cabecera-principal-central p {
+    font-family: "Be Vietnam Pro";
+    margin-top: 0.25rem;
+    font-size: 1rem;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content:center;
+}
+.calculadora {
+    font-family: "Be Vietnam Pro";
+    border-radius: 20px;
+    box-shadow: var(--c--sombra);
+    margin-inline-start: auto;
+    margin-inline-end: auto;
+    margin-block-start: 2em;
+    max-inline-size: 23rem;
+    overflow: hidden;
+    color: var(--c-texto-oscuro);
+    border-style: solid;
+    border-width: 0.2rem;
+    border-color: var(--c-texto-oscuro);
+}
+.calculadora__resultado {
+    background: var(--c-fondo);
+    font-size: 4rem;
+    padding-block-start: 3rem;
+    padding-block-end: 0.5rem;
+    padding-inline-end: 1.25rem;
+    text-align: end;
+}
+.calculadora__teclas {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-gap: 1px;
+    background: var(--c-fondo);
+    padding: 0.5rem;
+}
+.calculadora__tecla {
+    background: var(--c-boton-general);
+    border: none;
+    padding-block-start: 1rem;
+    padding-block-end: 1rem;
+    padding-inline-end: 1.25rem;
+    padding-inline-start: 1.25rem;
+    font-size: 1.5rem;
+    inline-size: 70px;
+    block-size: 70px;
+    margin: 0.25rem;
+    border-radius: 40px;
+    box-shadow: 1px 1px rgba(0, 0, 0, 0.2);
+}
+.calculadora__tecla:focus,
+.calculadora__tecla:active {
+    background: var(--c--boton-presionado);
+    outline: none;
+}
+.calculadora__tecla:hover {
+    box-shadow: var(--c--sombra-leve) inset;
+}
+.calculadora__tecla--operador {
+    background: var(--c-boton-operacion);
+}
+.calculadora__tecla--operador:active {
+    background: var(--c--boton-presionado);
+}
+.calculadora__tecla--enter {
+    grid-column: 4 / 5;
+    grid-row: 2 / span 4;
+    background: var(--c-boton-resaltado);
+    height: auto;
+}
+.mi-firma {
+    position: fixed;
+    bottom: 5px;
+    left: 80%;
+    font-size: 15px;
+    line-height: 30px;
+    background-color: var(--c--blanco);
+    padding: 5px 10px;
+    border-radius: 25px;
+    box-shadow: var(--c--sombra);
+    font-family: "Be Vietnam Pro"
+}

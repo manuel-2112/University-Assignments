@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <script src="https://kit.fontawesome.com/dbc6cb6204.js" crossorigin="anonymous"></script>
+</head>
+<body>
+
+<div align="center">
+  <h1>DCChess</h1>
+  <div style="width: min-content; display: flex; flex-direction:column; align-items:center; align-content:flex-start; gap: 10px;">
+    <canvas id="myCanvas" align="center" style="border:2px solid #000000;"></canvas>
+    <input type="file" name="inputfile" id="inputfile" style="align-self: flex-start;">
+  </div>
+  <p>
+    <button onmousedown="reset()">|&lt;&lt;</button>
+    <button onmousedown="drawcanvas(-1)">&lt;</button>
+    <button onmousedown="drawcanvas(1)">&gt;</button>
+    t = <time id="timeText"></time>
+</p>
+</div>
+
+<script type="text/javascript">
+  document.getElementById('inputfile').addEventListener('change', function() {
+    var fr = new FileReader();
+    fr.onload = function() {
+      let lines = fr.result.split("\n");
+      xrange = +lines[0].split(',')[0];
+      yrange = +lines[0].split(',')[1];
+      document.getElementById("myCanvas").width = cellsize * (xrange + 1);
+      document.getElementById("myCanvas").height = cellsize * (yrange + 1);
+      let t_max = +lines[1];
+      let piece_character = lines[2];
+      piece_character = piece_character.trim();
+
+      // Set piecePath based on piece_character
+      if (piece_character == 'king') {
+        piecePath = './imgs/white-king.png';
+      } else if (piece_character == 'knight') {
+        piecePath = './imgs/white-knight.png';
+      }
+
+      piecePos = [];
+      bishopPos = [];
+      knightPos = [];
+      pawnPos = [];
+      rookPos = [];
+      blockedPos = [];
+      for (let i = 0; i <= t_max; i++) { piecePos.push([]); }
+      for (let i = 0; i <= t_max; i++) { bishopPos.push([]); }
+      for (let i = 0; i <= t_max; i++) { knightPos.push([]); }
+      for (let i = 0; i <= t_max; i++) { pawnPos.push([]); }
+      for (let i = 0; i <= t_max; i++) { rookPos.push([]); }
+      for (let i = 0; i <= t_max; i++) { blockedPos.push([]); }
+      for (let i = 0; i <= t_max; i++) { objectivePos.push([]); }
+      for (let i = 3; i < lines.length; i++) {
+        let data = lines[i].split(",");
+        let type = data[0];
+        let x, y, t;
+        switch (type) {
+          case 'Pi':
+            t = +data[3];
+            x = +data[1];
+            y = +data[2];
+            piecePos[t] = [x, yrange - y, t];
+            break;
+          case 'Bi':
+            x = +data[1];
+            y = +data[2];
+            bishopPos.push([x, yrange - y]);
+            break;
+          case 'Kn':
+            x = +data[1];
+            y = +data[2];
+            knightPos.push([x, yrange - y]);
+            break;
+          case 'Pa':
+            x = +data[1];
+            y = +data[2];
+            pawnPos.push([x, yrange - y]);
+            break;
+          case 'Ro':
+            x = +data[1];
+            y = +data[2];
+            rookPos.push([x, yrange - y]);
+            break;
+          case 'Bl':
+            x = +data[1];
+            y = +data[2];
+            blockedPos.push([x, yrange - y]);
+            break;
+          case 'Go':
+            x = +data[1];
+            y = +data[2];
+            objectivePos.push([x, yrange - y]);
+            break;
+        }
+      }
+      time = 0;
+      drawcanvas(0);
+    }
+    fr.readAsText(this.files[0]);
+  });  
+</script>
+
+<script>
+  let xrange = 0;
+  let yrange = 0;
+  let piecePos = [];
+  let bishopPos = [];
+  let knightPos = [];
+  let pawnPos = [];
+  let rookPos = [];
+  let objectivePos = [];
+  let blockedPos = [];
+  const cellsize = 80;
+  const piecesize = cellsize;
+  const bishopPath = './imgs/black-bishop.png';
+  const knightPath = './imgs/black-knight.png';
+  const pawnPath = './imgs/black-pawn.png';
+  const rookPath = './imgs/black-rook.png';
+  let piecePath;
+  let time = 0;
+  let blocked_color = "rgba(255, 69, 69, 0.7)";
+  let goal_color = "rgba(69, 255, 69, 0.7)";
+
+  window.onload = function() {
+    drawcanvas(0);
+  };
+
+  function drawpiece(x, y) {
+    var canvas = document.getElementById("myCanvas");
+    var ctx = canvas.getContext("2d");
+    const img = new Image();
+    var hRatio = cellsize / img.width   ;
+    var vRatio = cellsize / img.height  ;
+    var ratio  = Math.min ( hRatio, vRatio );
+    img.onload = () => {
+      ctx.drawImage(img, cellsize * x + (cellsize - piecesize) / 2, cellsize * y + (cellsize - piecesize) / 2, piecesize, piecesize);
+    };
+    ctx.stroke();
+    let r = (piecesize * 0.8) / 2;
+    ctx.beginPath();
+    ctx.stroke();
+    img.src = piecePath;
+  }
+
+  function drawblocked(x, y) {
+    var canvas = document.getElementById("myCanvas");
+    var ctx = canvas.getContext("2d");
+    ctx.fillStyle = blocked_color;
+    ctx.fillRect(cellsize * x, cellsize * y, cellsize, cellsize);
+  }
+
+  function drawObjective(x,y){
+    var canvas = document.getElementById("myCanvas");
+    var ctx = canvas.getContext("2d");
+    ctx.fillStyle = goal_color;
+    ctx.fillRect(cellsize * x, cellsize * y, cellsize, cellsize);
+  }
+
+  function drawbishop(x, y) {
+    var canvas = document.getElementById("myCanvas");
+    var ctx = canvas.getContext("2d");
+    const img = new Image();
+    img.onload = () => {
+      ctx.drawImage(img, cellsize * x + (cellsize - piecesize) / 4, cellsize * y + (cellsize - piecesize) / 4, cellsize, cellsize);
+    };
+    ctx.stroke();
+    ctx.fillStyle = "#000000";
+    img.src = bishopPath;
+  }
+
+  function drawknight(x, y) {
+    var canvas = document.getElementById("myCanvas");
+    var ctx = canvas.getContext("2d");
+    const img = new Image();
+    img.onload = () => {
+      ctx.drawImage(img, cellsize * x + (cellsize - piecesize) / 4, cellsize * y + (cellsize - piecesize) / 4, cellsize, cellsize);
+    };
+    ctx.stroke();
+    ctx.fillStyle = "#000000";
+    img.src = knightPath;
+  }
+
+  function drawpawn(x, y) {
+    var canvas = document.getElementById("myCanvas");
+    var ctx = canvas.getContext("2d");
+    const img = new Image();
+    img.onload = () => {
+      ctx.drawImage(img, cellsize * x + (cellsize - piecesize) / 4, cellsize * y + (cellsize - piecesize) / 4, cellsize, cellsize);
+    };
+    ctx.stroke();
+    ctx.fillStyle = "#000000";
+    img.src = pawnPath;
+  }
+
+  function drawrook(x, y) {
+    var canvas = document.getElementById("myCanvas");
+    var ctx = canvas.getContext("2d");
+    const img = new Image();
+    img.onload = () => {
+      ctx.drawImage(img, cellsize * x + (cellsize - piecesize) / 4, cellsize * y + (cellsize - piecesize) / 4, cellsize, cellsize);
+    };
+    ctx.stroke();
+    ctx.fillStyle = "#000000";
+    img.src = rookPath;
+  }
+
+  function drawpieces(delta) {
+    var canvas = document.getElementById("myCanvas");
+    var ctx = canvas.getContext("2d");
+    var img = document.getElementById("robot_image");
+
+    if (time + delta < piecePos.length && time + delta >= 0) {
+      time = time + delta;
+    }
+
+    drawpiece(piecePos[time][0], piecePos[time][1]);
+    ctx.stroke();
+  }
+
+  function drawinit(){
+    xrange = 7;
+    yrange = 7;
+    document.getElementById("myCanvas").width = cellsize * (xrange + 1);
+    document.getElementById("myCanvas").height = cellsize * (yrange + 1);
+    let t_max = 0;
+
+    var canvas = document.getElementById("myCanvas");
+    var ctx = canvas.getContext("2d");
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+    // Coloreo de celdas negras y blancas
+    for (let i = 0; i <= xrange; i++) {
+      for (let j = 0; j <= yrange; j++) {
+        if ((i + j) % 2 === 0) {
+          ctx.fillStyle = '#FFFFFF';
+        } else {
+          ctx.fillStyle = '#151925';
+        }
+        ctx.fillRect(cellsize * i, cellsize * j, cellsize, cellsize);
+      }
+    }
+
+    for (i = 1; i <= xrange; i++) {
+      ctx.moveTo(cellsize * i, 0);
+      ctx.lineTo(cellsize * i, cellsize * (yrange + 1));
+    }
+    for (i = 1; i <= yrange; i++) {
+      ctx.moveTo(0, cellsize * i);
+      ctx.lineTo(cellsize * (xrange + 1), cellsize * i);
+    }
+
+    ctx.stroke();
+
+    document.getElementById("timeText").textContent = "-1";
+  }
+
+  function drawcanvas(delta) {
+    if (!xrange) return;
+    var canvas = document.getElementById("myCanvas");
+    var ctx = canvas.getContext("2d");
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+    // Coloreo de celdas negras y blancas
+    for (let i = 0; i <= xrange; i++) {
+      for (let j = 0; j <= yrange; j++) {
+        if ((i + j) % 2 === 0) {
+          ctx.fillStyle = '#FFFFFF';
+        } else {
+          ctx.fillStyle = '#151925';
+        }
+        ctx.fillRect(cellsize * i, cellsize * j, cellsize, cellsize);
+      }
+    }
+
+    // Coloreo de celdas objetivo
+    for (j = 0; j < objectivePos.length; j++) {
+      drawObjective(objectivePos[j][0], objectivePos[j][1]);
+    }
+
+    // Coloreo de celdas bloqueadas
+    for (j = 0; j < blockedPos.length; j++) {
+      drawblocked(blockedPos[j][0], blockedPos[j][1]);
+    }
+
+    for (i = 1; i <= xrange; i++) {
+      ctx.moveTo(cellsize * i, 0);
+      ctx.lineTo(cellsize * i, cellsize * (yrange + 1));
+    }
+    for (i = 1; i <= yrange; i++) {
+      ctx.moveTo(0, cellsize * i);
+      ctx.lineTo(cellsize * (xrange + 1), cellsize * i);
+    }
+    ctx.stroke();
+
+    for (j = 0; j < bishopPos.length; j++) {
+      drawbishop(bishopPos[j][0], bishopPos[j][1]);
+    }
+
+    for (j = 0; j < knightPos.length; j++) {
+      drawknight(knightPos[j][0], knightPos[j][1]);
+    }
+
+    for (j = 0; j < pawnPos.length; j++) {
+      drawpawn(pawnPos[j][0], pawnPos[j][1]);
+    }
+
+    for (j = 0; j < rookPos.length; j++) {
+      drawrook(rookPos[j][0], rookPos[j][1]);
+    }
+    
+    drawpieces(delta);
+
+    ctx.stroke();
+
+    document.getElementById("timeText").textContent = time;
+  }
+
+  function reset() {
+    time = 0;
+    drawcanvas();
+  }
+
+  drawinit();
+
+</script>
+
+</body>
+</html>

@@ -1,0 +1,9 @@
+# gitignore
+
+#pycache
+__pycache__/
+*.py[cod]
+*$py.class
+
+#Puntajes
+puntajes.txt

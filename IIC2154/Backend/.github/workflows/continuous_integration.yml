@@ -1,0 +1,88 @@
+name: Continuous Integration
+
+on:
+  pull_request:
+    branches: main
+    paths-ignore:
+      - "docs/**"
+    types: [opened, synchronize, reopened]
+  workflow_dispatch:
+
+jobs:
+  lint:
+    name: Lint 🔎
+    runs-on: ubuntu-latest
+    environment: Test
+    steps:
+      - uses: actions/checkout@v2
+      - name: Set up Node.js
+        uses: actions/setup-node@v1
+        with:
+          node-version: '14'
+      - name: Install Dependencies
+        run: npm install
+      - name: Run ESLint
+        run: npm run lint
+
+  format:
+    name: Format 🔨
+    runs-on: ubuntu-latest
+    environment: Test
+    needs: lint
+    steps:
+      - uses: actions/checkout@v2
+      - name: Set up Node.js
+        uses: actions/setup-node@v1
+        with:
+          node-version: '14'
+      - name: Install Dependencies
+        run: npm install
+      - name: Check Format
+        run: npm run prettier
+
+  test:
+    name: Tests 👾
+    runs-on: ubuntu-latest
+    environment: Test
+    services:
+      mongodb:
+        image: mongo:4.4
+        ports:
+          - 27017:27017
+        options: >-
+          --health-cmd "mongo --eval 'db.runCommand({ping: 1})'"
+          --health-interval 10s
+          --health-timeout 5s
+          --health-retries 5
+    steps:
+      - uses: actions/checkout@v2
+      - name: Set up Node.js
+        uses: actions/setup-node@v1
+        with:
+          node-version: '14'
+      - name: Install Dependencies
+        run: npm install
+      - name: Run Tests
+        run: npm test
+        env:
+          API_KEY_TOKEN: ${{ secrets.API_KEY_TOKEN }}
+          AUTH0_CLIENT_SECRET: ${{ secrets.AUTH0_CLIENT_SECRET }}
+          MAIL_TOKEN: ${{ secrets.MAIL_TOKEN }}
+          AWS_S3_SECRET_ACCESS_KEY: ${{ secrets.AWS_S3_SECRET_ACCESS_KEY }}
+          SECRET: ${{ secrets.SECRET }}
+          MONGODB_URI: ${{ secrets.MONGODB_URI }}
+          ALGORITHMS: ${{ vars.ALGORITHMS }}
+          AUDIENCE: ${{ vars.AUDIENCE }}
+          AUDIENCE_ADMIN: ${{ vars.AUDIENCE_ADMIN }}
+          AUTH0_AUDIENCE: ${{ vars.AUTH0_AUDIENCE }}
+          AUTH0_CLIENT_ID: ${{ vars.AUTH0_CLIENT_ID }}
+          AUTH0_GRANT_TYPE: ${{ vars.AUTH0_GRANT_TYPE }}
+          AUTH0_URL: ${{ vars.AUTH0_URL }}
+          DEFAULT_COMPANY_LOGO: ${{ vars.DEFAULT_COMPANY_LOGO }}
+          AWS_S3_ACCESS_KEY_ID: ${{ vars.AWS_S3_ACCESS_KEY_ID }}
+          ISSUER: ${{ vars.ISSUER }}
+          JWKS_URI: ${{ vars.JWKS_URI }}
+          MAIL_USER: ${{ vars.MAIL_USER }}
+          NODE_ENV: ${{ vars.NODE_ENV }}
+          PORT: ${{ vars.PORT }}
+

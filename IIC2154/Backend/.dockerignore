@@ -1,0 +1,13 @@
+**/node_modules/
+**/dist
+.git
+npm-debug.log
+.coverage
+.coverage.*
+.aws
+.vscode
+.env.local
+.env
+Dev.Dockerfile
+docker-compose.yaml
+

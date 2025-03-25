@@ -1,0 +1,31 @@
+[
+    {
+        "title": "Estudiantes realizan plataforma Agtech",
+        "additionalInfo": "En un esfuerzo por modernizar la agricultura y mejorar la sostenibilidad de las prácticas agrícolas, un grupo de estudiantes ha lanzado una innovadora plataforma Agtech. Este proyecto busca integrar las últimas tecnologías en análisis de datos, inteligencia artificial y monitoreo remoto para optimizar el rendimiento de los cultivos y reducir el impacto ambiental. La plataforma también ofrece una red social para que los agricultores compartan conocimientos y experiencias, fortaleciendo así la comunidad agropecuaria.",
+        "isVisible": true,
+        "createdAt": "2023-11-20T13:58:50.360Z",
+        "updatedAt": "2023-11-27T21:42:48.878Z",
+        "imageLink": [
+            "https://agtech-public-media-images.s3.us-east-2.amazonaws.com/News/imagen_noticia_lanzamiento_agrotech.jpeg"
+        ]
+    },
+    {
+        "title": "Innovación educativa: Estudiantes crean Agtech para el futuro",
+        "additionalInfo": "Con la visión de empoderar a los agricultores con herramientas digitales, un equipo interdisciplinario de estudiantes ha desarrollado una nueva plataforma Agtech. Este sistema permite a los usuarios acceder a información climática en tiempo real, gestionar recursos hídricos de manera eficiente y obtener asesoramiento experto en técnicas de cultivo. Además, la plataforma cuenta con un módulo de aprendizaje en línea para educar a las nuevas generaciones en las prácticas de agricultura regenerativa y uso de energías renovables.",
+        "isVisible": true,
+        "createdAt": "2023-11-20T13:59:04.586Z",
+        "updatedAt": "2023-11-20T13:59:04.586Z",
+        "imageLink": [
+            "https://agtech-public-media-images.s3.us-east-2.amazonaws.com/News/imagen_noticia_dos.jpeg",
+            "https://agtech-public-media-images.s3.us-east-2.amazonaws.com/News/imagen_noticia_lanzamiento_agrotech.jpeg"
+        ]
+    },
+    {
+        "title": "News Test",
+        "additionalInfo": "New Dengue Attack!",
+        "imageLink": [],
+        "isVisible": false,
+        "createdAt": "2024-04-17T19:34:23.657Z",
+        "updatedAt": "2024-04-17T19:34:23.657Z"
+    }
+]

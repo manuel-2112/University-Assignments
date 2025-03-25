@@ -1,0 +1,83 @@
+[
+    {
+      "name": "Tech Fair 2024",
+      "initialDate": "2024-06-01T09:00:00Z",
+      "finalDate": "2024-06-03T18:00:00Z",
+      "url": "https://techfair2024.com",
+      "type": "Feria",
+      "status": "Aprobado"
+    },
+    {
+      "name": "Startup Pitch Event",
+      "initialDate": "2024-07-15T10:00:00Z",
+      "finalDate": "2024-07-15T17:00:00Z",
+      "url": "https://startuppitch.com",
+      "type": "Evento",
+      "status": "Pendiente"
+    },
+    {
+      "name": "Annual Procurement Tender",
+      "initialDate": "2024-08-01T08:00:00Z",
+      "finalDate": "2024-08-30T17:00:00Z",
+      "url": "https://procurementtender2024.com",
+      "type": "Licitacion",
+      "status": "Aprobado"
+    },
+    {
+      "name": "Summer Call for Proposals",
+      "initialDate": "2024-06-15T00:00:00Z",
+      "finalDate": "2024-07-15T23:59:59Z",
+      "url": "https://summerproposals.com",
+      "type": "Convocatoria",
+      "status": "Pendiente"
+    },
+    {
+      "name": "Winter Tech Conference",
+      "initialDate": "2024-12-01T09:00:00Z",
+      "finalDate": "2024-12-03T18:00:00Z",
+      "url": "https://wintertechconference.com",
+      "type": "Evento",
+      "status": "Aprobado"
+    },
+    {
+      "name": "Innovation Fair",
+      "initialDate": "2024-09-10T10:00:00Z",
+      "finalDate": "2024-09-12T17:00:00Z",
+      "url": "https://innovationfair.com",
+      "type": "Feria",
+      "status": "Pendiente"
+    },
+    {
+      "name": "Government Procurement Call",
+      "initialDate": "2024-10-01T00:00:00Z",
+      "finalDate": "2024-10-31T23:59:59Z",
+      "url": "https://govprocurement.com",
+      "type": "Convocatoria",
+      "status": "Aprobado"
+    },
+    {
+      "name": "Annual Developer Conference",
+      "initialDate": "2024-11-20T09:00:00Z",
+      "finalDate": "2024-11-22T18:00:00Z",
+      "url": "https://devconference.com",
+      "type": "Evento",
+      "status": "Pendiente"
+    },
+    {
+      "name": "Fall Startup Fair",
+      "initialDate": "2024-10-05T09:00:00Z",
+      "finalDate": "2024-10-07T18:00:00Z",
+      "url": "https://fallstartupfair.com",
+      "type": "Feria",
+      "status": "Aprobado"
+    },
+    {
+      "name": "Technology Tender 2024",
+      "initialDate": "2024-11-01T08:00:00Z",
+      "finalDate": "2024-11-30T17:00:00Z",
+      "url": "https://technologytender2024.com",
+      "type": "Licitacion",
+      "status": "Pendiente"
+    }
+  ]
+  

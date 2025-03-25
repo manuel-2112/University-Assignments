@@ -1,0 +1,94 @@
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+jobs:
+  build-and-deploy:
+    name: Build and Deploy 🚀
+    runs-on: ubuntu-latest
+    environment: Production
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v1
+
+      - name: Configure AWS credentials
+        uses: aws-actions/configure-aws-credentials@v2
+        with:
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws-region: ${{ vars.AWS_REGION }}
+
+      - name: Log in to Amazon ECR
+        id: ecr_login
+        run: |
+          aws ecr get-login-password --region ${{ vars.AWS_REGION }} | docker login --username AWS --password-stdin ${{ secrets.AWS_ACCOUNT_ID }}.dkr.ecr.${{ vars.AWS_REGION }}.amazonaws.com
+
+      - name: Clean up old ECR images
+        id: cleanup_ecr
+        run: |
+          IMAGE_IDS=$(aws ecr list-images --repository-name backendapi --region ${{ vars.AWS_REGION }} --query 'imageIds[*]' --output json)
+          if [ ! -z "$IMAGE_IDS" ]; then
+            aws ecr batch-delete-image --repository-name backendapi --region ${{ vars.AWS_REGION }} --image-ids "$IMAGE_IDS"
+          fi
+
+      - name: Build, tag, and push image to Amazon ECR
+        run: |
+          docker build -t backendapi:latest .
+          docker tag backendapi:latest ${{ secrets.AWS_ACCOUNT_ID }}.dkr.ecr.${{ vars.AWS_REGION }}.amazonaws.com/backendapi:latest
+          docker push ${{ secrets.AWS_ACCOUNT_ID }}.dkr.ecr.${{ vars.AWS_REGION }}.amazonaws.com/backendapi:latest
+
+      - name: Deploy to EC2
+        uses: appleboy/ssh-action@master
+        with:
+          host: ${{ secrets.EC2_PUBLIC_IP }}
+          username: ubuntu
+          key: ${{ secrets.SSH_PRIVATE_KEY }}
+          script: |
+            echo "Logging into Amazon ECR..."
+            aws configure set aws_access_key_id ${{ secrets.AWS_ACCESS_KEY_ID }}
+            aws configure set aws_secret_access_key ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+            aws configure set region ${{ vars.AWS_REGION }}
+            aws ecr get-login-password --region ${{ vars.AWS_REGION }} | docker login --username AWS --password-stdin ${{ secrets.AWS_ACCOUNT_ID }}.dkr.ecr.${{ vars.AWS_REGION }}.amazonaws.com
+            
+            echo "Cleaning up old Docker images and containers..."
+            docker container prune -f
+            docker image prune -af
+            
+            echo "Pulling Docker image..."
+            docker pull ${{ secrets.AWS_ACCOUNT_ID }}.dkr.ecr.${{ vars.AWS_REGION }}.amazonaws.com/backendapi:latest
+            
+            echo "Stopping any existing container..."
+            docker stop backendapi || true
+            
+            echo "Removing any existing container..."
+            docker rm backendapi || true
+            
+            echo "Running new container..."
+            docker run -d --restart unless-stopped --name backendapi -p 8080:8080 \
+              -e API_KEY_TOKEN="${{ secrets.API_KEY_TOKEN }}" \
+              -e AUTH0_CLIENT_SECRET="${{ secrets.AUTH0_CLIENT_SECRET }}" \
+              -e MAIL_TOKEN="${{ secrets.MAIL_TOKEN }}" \
+              -e AWS_S3_SECRET_ACCESS_KEY="${{ secrets.AWS_S3_SECRET_ACCESS_KEY }}" \
+              -e SECRET="${{ secrets.SECRET }}" \
+              -e MONGODB_URI="${{ secrets.MONGODB_URI }}" \
+              -e ALGORITHMS="${{ vars.ALGORITHMS }}" \
+              -e AUDIENCE="${{ vars.AUDIENCE }}" \
+              -e AUDIENCE_ADMIN="${{ vars.AUDIENCE_ADMIN }}" \
+              -e AUTH0_AUDIENCE="${{ vars.AUTH0_AUDIENCE }}" \
+              -e AUTH0_CLIENT_ID="${{ vars.AUTH0_CLIENT_ID }}" \
+              -e AUTH0_GRANT_TYPE="${{ vars.AUTH0_GRANT_TYPE }}" \
+              -e AUTH0_URL="${{ vars.AUTH0_URL }}" \
+              -e DEFAULT_COMPANY_LOGO="${{ vars.DEFAULT_COMPANY_LOGO }}" \
+              -e AWS_S3_ACCESS_KEY_ID="${{ vars.AWS_S3_ACCESS_KEY_ID }}" \
+              -e ISSUER="${{ vars.ISSUER }}" \
+              -e JWKS_URI="${{ vars.JWKS_URI }}" \
+              -e MAIL_USER="${{ vars.MAIL_USER }}" \
+              -e NODE_ENV="${{ vars.NODE_ENV }}" \
+              -e PORT="${{ vars.PORT }}" \
+              ${{ secrets.AWS_ACCOUNT_ID }}.dkr.ecr.${{ vars.AWS_REGION }}.amazonaws.com/backendapi:latest

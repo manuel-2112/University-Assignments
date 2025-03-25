@@ -1,0 +1,42 @@
+[
+    {
+        "_id": "6630594d00b981ab713e5d26",
+        "user_id": "no_status",
+        "favoriteCompanies": [],
+        "status": "None",
+        "__v": 0,
+        "ownedCompanies": [],
+        "claimedCompanies": []
+    },
+    {
+        "displayData": {
+            "name": "Name Name",
+            "number": "56988884444",
+            "email": "email@test.com",
+            "motivation": "Me interesa mucho unirme al gremio, espero me acepten!"
+        },
+        "_id": "7630594d00b981ab713e5d27",
+        "user_id": "pending_status",
+        "favoriteCompanies": [],
+        "status": "Pending",
+        "__v": 0,
+        "role": "Sponsor",
+        "ownedCompanies": [],
+        "claimedCompanies": []
+    },
+    {
+        "displayData": {
+            "name": "Name Name",
+            "number": "56988884444",
+            "email": "email@test.com"
+        },
+        "_id": "1111594d00b981ab713e5d27",
+        "user_id": "accepted_user",
+        "favoriteCompanies": [],
+        "status": "Pending",
+        "__v": 0,
+        "role": "Sponsor",
+        "ownedCompanies": [],
+        "claimedCompanies": []
+    }
+]

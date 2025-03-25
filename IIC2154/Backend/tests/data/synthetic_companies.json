@@ -1,0 +1,202 @@
+[
+  {
+    "name": "Agroindustria Campo Verde",
+    "email": "contacto@campo-verde.cl",
+    "rut": "76123456-8",
+    "logo": "https://placeimg.com/437/824/any",
+    "region": "Región Metropolitana",
+    "city": "Santiago",
+    "address": "Av. Agrícola 1234",
+    "description": "Nos dedicamos a la producción y comercialización de productos agrícolas de alta calidad. Nuestro compromiso es contribuir al desarrollo sostenible del sector agrario.",
+    "contactEmail": "ventas@campo-verde.cl",
+    "contactPhone": "+56 9 8765 4321",
+    "instagramUrl": "https://www.instagram.com/agroindustriacampoverde",
+    "linkedinUrl": "https://www.linkedin.com/company/agroindustriacampoverde",
+    "webpageUrl": "https://www.campoverde.cl",
+    "branchRegions": [
+      "Valparaíso",
+      "O'Higgins",
+      "Maule"
+    ]
+  },
+  {
+    "name": "Semillas del Sur",
+    "email": "contacto@semillasdelsur.cl",
+    "rut": "98765432-1",
+    "logo": "https://dummyimage.com/785x75",
+    "region": "Región de Los Lagos",
+    "city": "Osorno",
+    "address": "Calle Semillera 567",
+    "description": "Somos líderes en la producción y distribución de semillas de alta calidad para cultivos agrícolas. Nuestro objetivo es contribuir al éxito de los agricultores mediante productos confiables y eficaces.",
+    "contactEmail": "info@semillasdelsur.cl",
+    "contactPhone": "+56 9 7654 3210",
+    "instagramUrl": "https://www.instagram.com/semillasdelsur",
+    "linkedinUrl": "https://www.linkedin.com/company/semillasdelsur",
+    "webpageUrl": "https://www.semillasdelsur.cl",
+    "branchRegions": [
+      "Los Ríos",
+      "Araucanía",
+      "Magallanes"
+    ]
+  },
+  {
+    "name": "Agroquímicos y Fertilizantes Ecológicos",
+    "email": "contacto@agroecologicos.cl",
+    "rut": "23456789-0",
+    "logo": "https://placekitten.com/973/682",
+    "region": "Región del Biobío",
+    "city": "Concepción",
+    "address": "Av. Ecológica 789",
+    "description": "Nos especializamos en la producción y venta de agroquímicos y fertilizantes ecológicos, respetuosos con el medio ambiente y la salud de las personas. Contribuimos al desarrollo sustentable de la agricultura.",
+    "contactEmail": "ventas@agroecologicos.cl",
+    "contactPhone": "+56 9 6543 2109",
+    "instagramUrl": "https://www.instagram.com/agroquimicosecologicos",
+    "linkedinUrl": "https://www.linkedin.com/company/agroquimicosecologicos",
+    "webpageUrl": "https://www.agroecologicos.cl",
+    "branchRegions": [
+      "Coquimbo",
+      "Valparaíso",
+      "Maule"
+    ]
+  },
+  {
+    "name": "Maquinaria Agrícola Innovadora",
+    "email": "contacto@mai.cl",
+    "rut": "12345678-9",
+    "logo": "https://dummyimage.com/867x933",
+    "region": "Región de Valparaíso",
+    "city": "San Antonio",
+    "address": "Calle Innovación 012",
+    "description": "Fabricamos y comercializamos maquinaria agrícola de última generación, diseñada para mejorar la eficiencia y productividad en el campo. Nuestro compromiso es ofrecer soluciones innovadoras y confiables.",
+    "contactEmail": "info@mai.cl",
+    "contactPhone": "+56 9 5432 1098",
+    "instagramUrl": "https://www.instagram.com/maquinariaagricolainnovadora",
+    "linkedinUrl": "https://www.linkedin.com/company/maquinariaagricolainnovadora",
+    "webpageUrl": "https://www.maquinariaagricola.cl",
+    "branchRegions": [
+      "Metropolitana",
+      "O'Higgins",
+      "Biobío"
+    ]
+  },
+  {
+    "name": "Agricultura Orgánica del Sur",
+    "email": "contacto@agroorganico.cl",
+    "rut": "34567890-1",
+    "logo": "https://dummyimage.com/518x526",
+    "region": "Región de La Araucanía",
+    "city": "Temuco",
+    "address": "Av. Orgánica 345",
+    "description": "Nos dedicamos a la producción y comercialización de alimentos orgánicos, cultivados de manera sustentable y respetuosa con el medio ambiente. Promovemos un estilo de vida saludable y consciente.",
+    "contactEmail": "info@agroorganico.cl",
+    "contactPhone": "+56 9 4321 0987",
+    "instagramUrl": "https://www.instagram.com/agriculturaorganicasur",
+    "linkedinUrl": "https://www.linkedin.com/company/agriculturaorganicasur",
+    "webpageUrl": "https://www.agriculturaorganica.cl",
+    "branchRegions": [
+      "Araucanía",
+      "Los Ríos",
+      "Los Lagos"
+    ]
+  },
+  {
+    "name": "Agropecuaria Tierras Fértiles",
+    "email": "contacto@tierrasfertiles.cl",
+    "rut": "45678901-2",
+    "logo": "https://www.lorempixel.com/374/828",
+    "region": "Región de O'Higgins",
+    "city": "Rancagua",
+    "address": "Av. Fértil 456",
+    "description": "Somos una empresa dedicada a la producción agropecuaria en tierras fértiles, utilizando prácticas sostenibles y tecnología de vanguardia. Nuestro objetivo es garantizar alimentos de calidad para la población.",
+    "contactEmail": "info@tierrasfertiles.cl",
+    "contactPhone": "+56 9 2109 8765",
+    "instagramUrl": "https://www.instagram.com/agropecuariatierrasfertiles",
+    "linkedinUrl": "https://www.linkedin.com/company/agropecuariatierrasfertiles",
+    "webpageUrl": "https://www.tierrasfertiles.cl",
+    "branchRegions": [
+      "Maule",
+      "Biobío",
+      "Araucanía"
+    ]
+  },
+  {
+    "name": "Viveros del Valle",
+    "email": "contacto@viverosdelvalle.cl",
+    "rut": "56789012-3",
+    "logo": "https://www.lorempixel.com/374/828",
+    "region": "Región de Coquimbo",
+    "city": "La Serena",
+    "address": "Calle Vivero 789",
+    "description": "Nos especializamos en la producción y venta de plantas y árboles para la agricultura y la ornamentación. Nuestros viveros cuentan con variedades de alta calidad y excelentes precios.",
+    "contactEmail": "info@viverosdelvalle.cl",
+    "contactPhone": "+56 9 8765 4321",
+    "instagramUrl": "https://www.instagram.com/viverosdelvalle",
+    "linkedinUrl": "https://www.linkedin.com/company/viverosdelvalle",
+    "webpageUrl": "https://www.viverosdelvalle.cl",
+    "branchRegions": [
+      "Valparaíso",
+      "Metropolitana",
+      "O'Higgins"
+    ]
+  },
+  {
+    "name": "Comercializadora Agrícola del Norte",
+    "email": "contacto@can.cl",
+    "rut": "67890123-4",
+    "logo": "https://placekitten.com/396/456",
+    "region": "Región de Tarapacá",
+    "city": "Iquique",
+    "address": "Av. Agrícola Norte 123",
+    "description": "Somos una empresa dedicada a la comercialización de productos agrícolas del norte de Chile, ofreciendo una amplia variedad de productos frescos y de calidad para nuestros clientes.",
+    "contactEmail": "info@can.cl",
+    "contactPhone": "+56 9 7654 3210",
+    "instagramUrl": "https://www.instagram.com/comercializadoraagricoladelnorte",
+    "linkedinUrl": "https://www.linkedin.com/company/comercializadoraagricoladelnorte",
+    "webpageUrl": "https://www.comercializadoraagricola.cl",
+    "branchRegions": [
+      "Antofagasta",
+      "Atacama",
+      "Coquimbo"
+    ]
+  },
+  {
+    "name": "Servicios Agropecuarios del Sur",
+    "email": "contacto@sas.cl",
+    "rut": "78901234-5",
+    "logo": "https://dummyimage.com/598x870",
+    "region": "Región de Los Ríos",
+    "city": "Valdivia",
+    "address": "Calle Agropecuaria 456",
+    "description": "Ofrecemos servicios de consultoría y asesoría técnica para el sector agropecuario del sur de Chile, contribuyendo al desarrollo y la mejora continua de las actividades productivas.",
+    "contactEmail": "info@sas.cl",
+    "contactPhone": "+56 9 6543 2109",
+    "instagramUrl": "https://www.instagram.com/serviciosagropecuariosdelsur",
+    "linkedinUrl": "https://www.linkedin.com/company/serviciosagropecuariosdelsur",
+    "webpageUrl": "https://www.serviciosagropecuarios.cl",
+    "branchRegions": [
+      "Los Lagos",
+      "Araucanía",
+      "Magallanes"
+    ]
+  },
+  {
+    "name": "Productos Orgánicos del Valle",
+    "email": "contacto@prodorganicos.cl",
+    "rut": "89012345-6",
+    "logo": "https://placekitten.com/97/793",
+    "region": "Región de Aysén del General Carlos Ibáñez del Campo",
+    "city": "Coyhaique",
+    "address": "Av. Orgánica 789",
+    "description": "Nos dedicamos a la producción y comercialización de alimentos orgánicos del valle de Aysén, garantizando productos naturales y libres de químicos para nuestros clientes.",
+    "contactEmail": "info@prodorganicos.cl",
+    "contactPhone": "+56 9 4321 0987",
+    "instagramUrl": "https://www.instagram.com/productosorganicosdelvalle",
+    "linkedinUrl": "https://www.linkedin.com/company/productosorganicosdelvalle",
+    "webpageUrl": "https://www.prodorganicos.cl",
+    "branchRegions": [
+      "Magallanes",
+      "Los Lagos",
+      "Araucanía"
+    ]
+  }
+]

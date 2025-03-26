@@ -1,0 +1,19 @@
+DATA:
+
+led 0
+sw 0
+dis 0
+btn 0
+sec 0
+msec 0
+usec 0
+lcd 0
+
+CODE:
+MOV A, (sw)
+MOV B, (btn)
+ADD A,B
+MOV (dis), A
+
+end:
+JMP end

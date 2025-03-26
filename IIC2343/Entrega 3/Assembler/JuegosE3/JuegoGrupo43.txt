@@ -1,0 +1,234 @@
+DATA:
+
+led  0
+sw   0
+dis  0
+btn  0
+sec  0
+msec 0
+usec 0
+last_btn 0
+
+iniciar  1    // botón que se debe apretar para iniciar el juego (mitad?)
+aceptar  8    // botón que se debe apretar para aceptar (derecha?)
+rechazar 4    // botón que se debe apretar para rechazar (izquierda?)
+n        0    // número prohibido
+n_actual 0    // número actual
+n_players 0   // cantidad de jugadores
+bool     1    // 1 = número válido, 0 = número no válido
+contador 1    // cada vez que contador = n se debe rechazar un número
+digit_1  0    // primer dígito del número actual
+digit_2  0    // segundo dígito del número actual
+
+CODE:
+
+// START -------------------------
+
+wait_start:
+    MOV A, EEEEh
+    MOV (dis), A
+    MOV A, 0
+    MOV (led), A
+    MOV A, 1
+    MOV (iniciar), A
+    wait_start_press:        // chequear si se apretó el botón de inicio
+        MOV A, (btn)         // guarda el valor del botón
+        CMP A, (iniciar)     // y lo compara con el botón de inicio
+        JNE wait_start_press // si son distintos, sigue esperando
+    wait_start_release:      // esperar a que suelte el botón
+        MOV A, (btn)         // guarda el valor actual del botón
+        CMP A, 0             // si es cero es porque se soltó
+        JNE wait_start_release // sino, sigue esperando
+    initialize_game:
+        MOV A, 1
+        MOV (contador), A
+        MOV (dis), A
+        MOV (n_actual), A
+        CALL switch_right_side  // almacena el valor del nro prohibido en n
+        CALL switch_left_side   // almacena el nro de jugadores en n_players
+        MOV A, (n_players)
+        CMP A, 2
+        JLT wait_start
+        MOV A, 0
+        NOT A                   // A = 11111111 11111111
+        PUSH A
+        mostrar_puntitos:
+            POP A
+            SHL A               // 11111111 11111100
+            PUSH A
+            MOV A, (n_players)
+            SUB A, 1
+            MOV (n_players), A
+            CMP A, 0
+            JNE mostrar_puntitos
+        POP A
+        NOT A                   // 00000000 00000011
+        MOV (led), A
+
+// GAME --------------------------
+
+game:
+    CALL wait_btn_press     // esperar que aprieten el botón
+
+    // condición 1: número múltiplo de n
+    MOV A, (contador)
+    CMP A, (n)              // comparar el contador con n
+    JEQ not_valid           // si son iguales, se debe rechazar el número, sino se debe aceptar
+
+    CALL obtain_digits
+    
+    // condición 2: número contiene n
+    MOV A, (digit_1)
+    CMP A, (n)              // comparar el primer dígito con n
+    JEQ not_valid           // si son iguales, se debe rechazar el número, sino se debe aceptar
+    MOV A, (digit_2)
+    CMP A, (n)              // comparar el segundo dígito con n
+    JEQ not_valid           // si son iguales, se debe rechazar el número, sino se debe aceptar
+
+    valid:
+        MOV A, (aceptar)
+        CMP A, (last_btn)
+        JEQ sigue_1           // si el botón apretado es distinto de aceptar, el jugador perdió
+        CALL perdiste
+        MOV A, (led)
+        CMP A, 1              // revisar si queda 1 jugador
+        JEQ ganaste
+        sigue_1:
+          JMP step
+
+    not_valid:
+        MOV A, (rechazar)
+        CMP A, (last_btn)
+        JEQ sigue_2           // si el botón apretado es distinto de rechazar, el jugador perdió
+        CALL perdiste
+        MOV A, (led)
+        CMP A, 1              // revisar si queda 1 jugador
+        JEQ ganaste
+        sigue_2:
+            JMP step
+
+    step:
+        MOV A, (contador)
+        ADD A, 1
+        MOV (contador), A   // se incrementa el contador en 1
+        MOV A, (n)
+        ADD A, 1
+        CMP A, (contador)
+        JNE sigue_step
+        MOV A, 1
+        MOV (contador), A
+        sigue_step:
+            MOV A, (n_actual)
+            ADD A, 1
+            MOV (n_actual), A   // incrementar n_actual en 1
+            MOV (dis), A        // mostrar n_actual en el display
+            JMP game
+
+wait_btn_press:
+    MOV A, (btn)
+    CMP A, 0
+    JEQ wait_btn_press    // si no se ha apretado un botón, seguir esperando
+    MOV (last_btn), A     // si se apretó, actualiza last_btn con el valor del botón apretado
+wait_btn_release:         // esperar a que se suelte el botón
+    MOV A, (btn)          // guarda el valor actual del botón
+    CMP A, 0              // si es cero es porque se soltó
+    JNE wait_btn_release  // sino, sigue esperando
+RET
+
+perdiste:
+    MOV A, FFFFh        // número hexa FFFF
+    MOV (dis), A        // mostrar FFFF en el display
+    MOV A, (sec)
+    wait_a_sec_FF1:      // esperar un segundo para que el mensaje se mantenga
+      CMP A, (sec)
+      JEQ wait_a_sec_FF1
+        MOV A, (sec)
+    wait_a_sec_FF2:      // esperar un segundo para que el mensaje se mantenga
+      CMP A, (sec)
+      JEQ wait_a_sec_FF2
+    MOV A, (led)
+    SHR A
+    MOV (led), A
+RET
+
+ganaste:
+    MOV A, AAAAh        // número hexa AAAA
+    MOV (dis), A
+    MOV A, (sec)
+    wait_a_sec_AA1:      // esperar un segundo para que el mensaje se mantenga
+      CMP A, (sec)
+      JEQ wait_a_sec_AA1
+    MOV A, (sec)
+    wait_a_sec_AA2:      // esperar un segundo para que el mensaje se mantenga
+      CMP A, (sec)
+      JEQ wait_a_sec_AA2
+
+    MOV A, (n_actual)        // número actual
+    MOV (dis), A
+    MOV A, (sec)
+    wait_a_sec_AA3:      // esperar un segundo para que el mensaje se mantenga
+      CMP A, (sec)
+      JEQ wait_a_sec_AA3
+    MOV A, (sec)
+    wait_a_sec_AA4:      // esperar un segundo para que el mensaje se mantenga
+      CMP A, (sec)
+      JEQ wait_a_sec_AA4
+
+
+    JMP wait_start
+
+switch_right_side:
+    MOV A, (sw)
+    SHL A
+    SHL A
+    SHL A
+    SHL A
+    SHL A
+    SHL A
+    SHL A
+    SHL A
+
+    SHR A
+    SHR A
+    SHR A
+    SHR A
+    SHR A
+    SHR A
+    SHR A
+    SHR A
+    MOV (n), A
+RET
+
+switch_left_side:
+    MOV A, (sw)
+    SHR A
+    SHR A
+    SHR A
+    SHR A
+    SHR A
+    SHR A
+    SHR A
+    SHR A
+    MOV (n_players), A
+RET
+
+obtain_digits:          // n_actual = 0001 0011
+    MOV A, (n_actual)
+    SHR A
+    SHR A
+    SHR A
+    SHR A
+    MOV (digit_1), A    // digit_1 = 0000 0001
+    SHL A
+    SHL A
+    SHL A
+    SHL A
+    MOV (digit_2), A    // digit 2 = 0001 0000
+    MOV A, (n_actual)   // A = 0001 0011
+    SUB A, (digit_2)    // A = 0001 0011 - 0001 0000 = 0000 0011
+    MOV (digit_2), A    // digit_2 = 0000 0011
+RET
+
+null:
+    JMP null
+

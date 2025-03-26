@@ -1,0 +1,20 @@
+DATA:
+
+led 0
+sw 0
+dis 0
+btn 0
+sec 0
+msec 0
+usec 0
+lcd 0
+
+CODE:
+loop:
+MOV A, (sec)
+MOV (dis),A
+
+MOV B, (msec)
+MOV (led), B
+
+JMP loop
